@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attack on Titan Characters</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.character-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.character-list li {
+    margin-bottom: 10px;
+}
+
+.character-list a {
+    text-decoration: none;
+    color: #333;
+    background-color: #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.character-list a:hover {
+    background-color: #aaa;
+}
+
+.search-form {
+    margin-top: 20px;
+}
+
+.search-form label {
+    font-weight: bold;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-form input[type="submit"] {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #555;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Attack on Titan Characters</h1>
+    
+    <form class="search-form">
+        <label for="search">Search Characters:</label>
+        <input type="text" id="search" name="search" placeholder="Enter character name">
+    </form>
+    
+    <ul class="character-list" id="characterList">
+        <li><a href="characters/eren.html">Eren Jaeger</a></li>
+        <li><a href="characters/mikasa.html">Mikasa Ackerman</a></li>
+        <li><a href="characters/armin.html">Armin Arlert</a></li>
+        <li><a href="characters/levi.html">Levi Ackerman</a></li>
+    </ul>
+</div>
+
+<script>
+document.getElementById('search').addEventListener('input', function() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("characterList");
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+});
+</script>
+
+</body>
+</html>
